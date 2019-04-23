@@ -37,10 +37,7 @@
         :cy="radius"
       ></circle>
     </svg>
-    <span
-      :style="{top: radius + 'px'}"
-      :class="$style.text"
-    >
+    <span :style="{ top: radius + 'px' }" :class="$style.text">
       {{ progress }}%
     </span>
     <h3 :class="$style.name">
@@ -98,7 +95,7 @@ export default {
 }
 
 .svg {
-  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, .35));
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.35));
 }
 
 .circle {
@@ -106,12 +103,10 @@ export default {
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
   fill: transparent;
-
 }
 
 .circleBg {
   stroke: $grey;
-
 }
 .circleIndicate {
   stroke: $blue;
@@ -146,5 +141,4 @@ export default {
   color: $textGrey;
   letter-spacing: normal;
 }
-
 </style>

@@ -167,54 +167,6 @@
 }
 
 
-.skillBlockLanguage__item {
-    position: relative;
-    margin-bottom: 8rem;
-    flex-grow: 0;
-    transform: scale(.9);
-
-    $item-lang: var(--item-lang);
-
-    @include roundBar(160px, 90, $grey, $blue, $bgColor, 0);
-
-    &--ru {
-        @include roundBar(160px, 90, $grey, $blue, $bgColor, 0);
-    }
-
-    &--ukr {
-        @include roundBar(160px, 80, $grey, $blue, $bgColor, 0);
-    }
-
-    &--en {
-        @include roundBar(160px, 40, $grey, $blue, $bgColor, 0);
-    }
-}
-
-.skillBlockLanguage__text {    
-    position: absolute;
-    display: block;
-    width: 120%;
-    left: -10%;
-    top: 17.5rem;
-    text-align: center;
-
-    font-size: $fontSize;
-    text-transform: uppercase;
-    color: $textBlack;
-    letter-spacing: 1.75px;
-}
-
-.skillBlockLanguage__descr {
-    display: block;
-    margin-top: .75rem;
-
-    text-transform: none;
-    font-size: $fontSize--small;
-    color: $textGrey;
-    letter-spacing: normal;
-
-}
-
 @media only screen and (min-width : 360px) {
     .skillBlockMain__title {
         margin-bottom: 4.5rem;
