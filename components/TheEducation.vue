@@ -10,7 +10,7 @@
         <div class="education__title">Мое образование</div>
         <ul class="education__list">
           <li class="education__icon">
-            @@include('template/education.svg')
+            <SvgIcon icon="education" />
           </li>
           <li class="education__item">
             <div class="education__school">
@@ -68,8 +68,13 @@
 </template>
 
 <script>
+import { SvgIcon } from '@/components/basic'
+
 export default {
-  name: 'TheEducation'
+  name: 'TheEducation',
+  components: {
+    SvgIcon
+  }
 }
 </script>
 

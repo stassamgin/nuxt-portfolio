@@ -10,7 +10,7 @@
         <div class="workExp__title">Опыт работы</div>
         <ul class="workExp__list">
           <li class="workExp__icon">
-            @@include('template/workExp.svg')
+            <SvgIcon icon="work-exp" />
           </li>
           <li class="workExp__item">
             <div class="workExp__year">апрель 2015 – настоящий момент</div>
@@ -70,8 +70,13 @@
 </template>
 
 <script>
+import { SvgIcon } from '@/components/basic'
+
 export default {
-  name: 'TheWorkExperience'
+  name: 'TheWorkExperience',
+  components: {
+    SvgIcon
+  }
 }
 </script>
 

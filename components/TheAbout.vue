@@ -27,6 +27,7 @@
             <template v-for="item in text.contactData">
               <li
                 v-if="item.specialAttr"
+                :key="item.name"
                 v-bind="dynamicAttr(item.specialAttr)"
                 class="about__contactItem"
               >
@@ -34,12 +35,16 @@
                 <span v-html="item.value" />
               </li>
 
-              <li v-else-if="item.link" class="about__contactItem">
+              <li
+                v-else-if="item.link"
+                :key="item.name"
+                class="about__contactItem"
+              >
                 <span>{{ item.name }}: </span>
                 <a :href="item.link">{{ item.value }}</a>
               </li>
 
-              <li v-else class="about__contactItem">
+              <li v-else :key="item.name" class="about__contactItem">
                 <span>{{ item.name }}: </span>{{ item.value }}
               </li>
             </template>

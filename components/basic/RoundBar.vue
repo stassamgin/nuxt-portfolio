@@ -1,15 +1,4 @@
 <template>
-  <!--  <li-->
-  <!--    :style="createCssVarLanguages(barData.percent)"-->
-  <!--    class="skillBlockLanguage__item"-->
-  <!--  >-->
-  <!--    <span class="skillBlockLanguage__text">-->
-  <!--      {{ barData.name }}-->
-  <!--      <span class="skillBlockLanguage__descr">-->
-  <!--        {{ barData.description }}-->
-  <!--      </span>-->
-  <!--    </span>-->
-  <!--  </li>-->
   <li :class="$style.root">
     <svg
       :class="$style.svg"
