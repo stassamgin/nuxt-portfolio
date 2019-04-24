@@ -17,10 +17,6 @@
     @extend .skillBlockMain__title;
 }
 
-.workExp__list {
-    @extend .education__list;
-}
-
 .workExp__icon {
     @extend .education__icon;
 
@@ -31,26 +27,6 @@
 
             @media only screen and (min-width : $screen-sm) {
                 margin: .9rem 0 0 1.05rem;
-            }   
+            }
         }
-}
-
-.workExp__item {
-    @extend .education__item;
-}
-
-.workExp__year {
-    @extend .education__school;
-}
-
-.workExp__spec {
-    @extend .education__spec;
-}
-
-.workExp__org {
-    @extend .education__acadDegree;
-}
-
-.workExp__descr {
-    @extend .education__descr;
 }
