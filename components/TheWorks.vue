@@ -2,9 +2,9 @@
   <div class="section_wrapper">
     <section class="container" :class="text.blockId">
       <h2 class="asideTitle">
-        <span class="asideTitle__rotate asideTitle__rotate--works">{{
-          text.title
-        }}</span>
+        <span class="asideTitle__rotate asideTitle__rotate--works">
+          {{ text.title }}
+        </span>
       </h2>
       <div class="works__block">
         <h3 class="works__title">{{ text.title }}</h3>
@@ -15,27 +15,32 @@
             class="works__item"
           >
             <img
-              :src="imagePath(item.photo)"
+              src="@/assets/image/uno1-min.jpg"
               :alt="item.name"
               class="works__img"
             />
             <div class="works__descr">
-              <p v-html="item.description" />
-              <div v-if="item.imageLink" class="work__link">
-                <a :href="'@/assets/image/' + item.imageLink" target="_blank">
-                  @@include('template/zoom.svg')
-                </a>
+              <div :class="$style.linkBlock">
+                <div v-if="item.image" :class="$style.link">
+                  <a v-bind="{ href: imagePath(item.image) }" target="_blank">
+                    <svg-icon icon="zoom" :class="$style.icon" />
+                  </a>
+                </div>
+                <div v-if="item.workLink" :class="$style.link">
+                  <a :href="item.workLink" target="_blank">
+                    <svg-icon icon="link" :class="$style.icon" />
+                  </a>
+                </div>
+                <div v-if="item.sourceLink" :class="$style.link">
+                  <a :href="item.sourceLink" target="_blank">
+                    <svg-icon icon="github" :class="$style.icon" />
+                  </a>
+                </div>
               </div>
-              <div v-else class="work__link">
-                <a href="http://r95317nx.beget.tech/beavers/" target="_blank">
-                  @@include('template/link.svg')
-                </a>
-                <a href="https://github.com/Nigmas/test_dabb" target="_blank">
-                  @@include('template/github.svg')
-                </a>
-              </div>
+              <p :class="$style.description">{{ item.description }}</p>
+              <div :class="$style.tools">{{ showTools(item.tools) }}</div>
             </div>
-            <div class="works__tools">HTML, SCSS, JS, gulp</div>
+            <div class="works__tools">{{ showTools(item.tools) }}</div>
           </li>
         </ul>
       </div>
@@ -44,8 +49,13 @@
 </template>
 
 <script>
+import { SvgIcon } from '@/components/basic'
+
 export default {
   name: 'TheWorks',
+  components: {
+    SvgIcon
+  },
   props: {
     text: {
       type: Object,
@@ -54,10 +64,76 @@ export default {
   },
   methods: {
     imagePath(name) {
-      return './assets/image/' + name
+      return '@/assets/image/uno1-min.jpg'
+    },
+
+    showTools(toolsArray) {
+      return toolsArray.join(', ')
     }
   }
 }
 </script>
 
-<style scoped></style>
+<style lang="scss" module>
+@import '~/assets/scss/_variables.scss';
+
+.linkBlock {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+
+.link {
+  font-family: $fontFamily1;
+  font-size: $fontSize--small;
+  color: $textBlack;
+  z-index: 5;
+  background-color: $bgColor;
+  position: relative;
+
+  &:first-child::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    content: '';
+    background-image: linear-gradient( -225deg, rgba(0,0,0,0) 50%, $bgColor 50%);
+  }
+
+  a {
+    display: inline-block;
+    transform: translateY(0.5rem);
+    margin-right: 10px;
+    overflow: hidden;
+
+    svg {
+      height: 24px;
+      width: 24px;
+
+      * {
+        fill: $textBlack;
+      }
+    }
+
+    &:hover svg * {
+      fill: $blue;
+    }
+  }
+}
+
+.description {
+  padding: 1.5rem 1.5rem 0;
+  background-color: $bgColor;
+}
+
+.tools {
+  background: $bgColor;
+  color: darken($grey, 15);
+  padding: 1rem 1.5rem;
+}
+
+.icon {
+  height: 22px;
+}
+</style>

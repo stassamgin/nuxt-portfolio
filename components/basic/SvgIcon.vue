@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'RoundBar',
+  name: 'SvgIcon',
   props: {
     icon: {
       type: String,
