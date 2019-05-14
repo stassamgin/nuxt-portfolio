@@ -56,13 +56,22 @@
 </template>
 
 <script>
+import gsapAnimation from '~/mixins/gsap'
+
 export default {
   name: 'TheAbout',
+  mixins: [gsapAnimation],
   props: {
     text: {
       type: Object,
       required: true
     }
+  },
+  mounted() {
+    this.topShow('.about__subtitle, .about__title')
+    this.rightShow('.about__contact')
+    this.bottomShow('.about__descr')
+    this.leftShow('.about .asideTitle')
   },
   methods: {
     dynamicAttr({ name, value }) {

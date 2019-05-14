@@ -98,7 +98,11 @@ export default {
     top: 0;
     left: -100%;
     content: '';
-    background-image: linear-gradient( -225deg, rgba(0,0,0,0) 50%, $bgColor 50%);
+    background-image: linear-gradient(
+      -225deg,
+      rgba(0, 0, 0, 0) 50%,
+      $bgColor 50%
+    );
   }
 
   a {

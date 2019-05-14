@@ -146,13 +146,6 @@ export default function() {
   // EFFECTS & ANIMATION https://greensock.com
 
   if (TweenMax && document.documentElement.clientWidth > 768) {
-    TweenMax.from('.hero__img', 0.2, { opacity: 0, delay: 0.9 })
-    TweenMax.from('.menuBtn', 0.3, { x: 50, opacity: 0 })
-
-    TweenMax.from('.hero__title', 0.3, { x: -70, opacity: 0 })
-    TweenMax.from('.hero__discr', 0.3, { x: -70, opacity: 0, delay: 0.3 })
-    TweenMax.from('.hero__resume', 0.3, { x: -70, opacity: 0, delay: 0.6 })
-
     // START PARAM FOR ANIMATED BLOCKS
     function leftHide(elem) {
       TweenMax.set(elem, { x: -70, opacity: 0 })
@@ -172,10 +165,8 @@ export default function() {
     leftHide('.about .asideTitle, .skills .asideTitle, .works .asideTitle')
     // leftHide ( ".about .asideTitle, .works .asideTitle" )
     leftHide('.education .asideTitle, .workExp .asideTitle')
-    rightHide('.about__contact, .education__item, .workExp__item')
-    topHide(
-      '.about__subtitle, .about__title, .skillBlockMain__title, .skillBlockSecond__title'
-    )
+    rightHide('.education__item, .workExp__item')
+    topHide(' .skillBlockMain__title, .skillBlockSecond__title')
     topHide(
       '.skillBlockLanguage__title, .works__title, .education__title, .workExp__title'
     )
@@ -186,14 +177,6 @@ export default function() {
 
     // SHOWED FUNCTION
     const elNorm = { x: 0, y: 0, opacity: 1 }
-
-    function aboutAnim() {
-      TweenMax.to(
-        '.about .asideTitle, .about__title, .about__subtitle, .about__descr, .about__contact',
-        0.5,
-        elNorm
-      )
-    }
 
     function skillsMainAnim() {
       // TweenMax.to(".skills .asideTitle, .skillBlockMain__title",
