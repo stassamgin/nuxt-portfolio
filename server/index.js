@@ -13,6 +13,9 @@ async function start() {
 
   const { host, port } = nuxt.options.server
 
+  const adminRoutes = require('./routes/admin')
+  const clientRoutes = require('./routes/client')
+
   // Build only in dev mode
   if (config.dev) {
     const builder = new Builder(nuxt)
@@ -21,7 +24,19 @@ async function start() {
     await nuxt.ready()
   }
 
+  app.use((req, res, next) => {
+    // res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader(
+      'Access-Control-Allow-Methods',
+      'OPTIONS, GET, POST, PUT, PATCH, DELETE'
+    )
+    res.setHeader('Access-Control-Allow-Headers', 'Content-type, Authorization')
+    next()
+  })
+
   // Give nuxt middleware to express
+  app.use('/admin', adminRoutes)
+  app.use('/client', clientRoutes)
   app.use(nuxt.render)
 
   // Listen the server
