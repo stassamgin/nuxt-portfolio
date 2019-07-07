@@ -12,5 +12,8 @@
   "devDependencies": {
     "@vue/cli-service": "^3.9.0",
     "vue-template-compiler": "^2.6.10"
+  },
+  "engines" : {
+    "node" : "^10.0.0"
   }
 }
