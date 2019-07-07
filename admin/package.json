@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:install": "npm install && npm run build",
     "build:clear": "rm -rf node_modules/ && npm install && npm run build"
   },
   "dependencies": {

@@ -6,17 +6,19 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
-    "build": "nuxt build",
-    "build:clear": "rm -rf node_modules/ && npm install && npm run build",
-    "build:full": "npm run build && npm run build --prefix admin",
-    "build:full:clear": "npm run build:clear && npm run build:clear --prefix admin",
+    "build": "NPM_CONFIG_PRODUCTION=false npm run build:both:install",
+    "build:client": "nuxt build",
+    "build:install": "npm install && npm run build:client",
+    "build:clear": "rm -rf node_modules/ && npm install && npm run build:client",
+    "build:both": "npm run build:client && npm run build --prefix admin",
+    "build:both:install": "npm run build:install && npm run build:install --prefix admin",
+    "build:both:clear": "npm run build:clear && npm run build:clear --prefix admin",
     "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:fix": "npm run lint -s -- --fix",
     "precommit": "npm run lint",
-    "test": "jest",
-    "heroku-postbuild": "npm install --prefix admin && npm run build --prefix admin"
+    "test": "jest"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
