@@ -13,7 +13,7 @@
     "lint:fix": "npm run lint -s -- --fix",
     "precommit": "npm run lint",
     "test": "jest",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm install --prefix admin && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && nuxt build && npm install --prefix admin && npm run build --prefix admin"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
