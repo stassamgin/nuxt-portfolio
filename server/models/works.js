@@ -2,29 +2,9 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 module.exports = mongoose.model(
-  'User',
+  'Works',
   new Schema({
-    firstName: {
-      type: String,
-      required: true
-    },
-    lastName: {
-      type: String,
-      required: true
-    },
-    patronymicName: {
-      type: String,
-      required: true
-    },
-    photo: {
-      type: String,
-      required: true
-    },
-    specialty: {
-      type: String,
-      required: true
-    },
-    birth: {
+    title: {
       type: String,
       required: true
     },
@@ -32,11 +12,37 @@ module.exports = mongoose.model(
       type: String,
       required: true
     },
-    contacts: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Contact'
-      }
-    ]
+    thumb: {
+      type: String,
+      required: true
+    },
+    image: {
+      type: String,
+      required: true
+    },
+    sourceLink: {
+      type: String,
+      required: true
+    },
+    workLink: {
+      type: String,
+      required: true
+    },
+    createdAt: {
+      type: String,
+      required: true
+    },
+    tools: {
+      type: Array,
+      required: true
+    },
+    enable: {
+      type: Boolean,
+      required: true
+    },
+    enableMobile: {
+      type: Boolean,
+      required: true
+    }
   })
 )

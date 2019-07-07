@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
@@ -25,7 +26,7 @@ async function start() {
   }
 
   app.use((req, res, next) => {
-    // res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Access-Control-Allow-Origin', '*')
     res.setHeader(
       'Access-Control-Allow-Methods',
       'OPTIONS, GET, POST, PUT, PATCH, DELETE'
@@ -35,8 +36,11 @@ async function start() {
   })
 
   // Give nuxt middleware to express
-  app.use('/admin', adminRoutes)
-  app.use('/client', clientRoutes)
+  app.use('/admin', function(req, res) {
+    res.sendFile(path.join(__dirname + '/admin/index.html'))
+  })
+  app.use('/api/admin', adminRoutes)
+  app.use('/api/client', clientRoutes)
   app.use(nuxt.render)
 
   // Listen the server

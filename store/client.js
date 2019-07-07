@@ -14,7 +14,7 @@ export const mutations = {
 
 export const actions = {
   async clietnData({ commit }, payload) {
-    const { data } = await this.$axios.get('/client/data')
+    const { data } = await this.$axios.get('/api/client/data')
 
     commit('setClientData', data);
   }
